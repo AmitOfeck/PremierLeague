@@ -5,7 +5,7 @@ import Utils from './Utils/Utils';
 function Fixtures(props) {
 
     let [fixtures , setFixtures] = useState([])
-    let [gameweek , setGameweek] = useState(1)
+    let [gameweek , setGameweek] = useState({deadline_time : ""})
 
     useEffect(async () => {
         console.log("first")
@@ -18,9 +18,9 @@ function Fixtures(props) {
         console.log(fixturesByGameweek)
         setFixtures(fixturesByGameweek)
         setGameweek(filter[0])
-        console.log(gameweek.deadline_time)    
 
     },[])
+
 
     function dateConvert(date){
         let convert = new Date(date)
@@ -34,10 +34,9 @@ function Fixtures(props) {
     //     setFixtures(answer)
     // },[gameweek])
 
-
     return (
         <div>
-            <h5>{gameweek.name} {dateConvert(gameweek.deadline_time)}</h5>
+            <h5>{gameweek.name}</h5>
 
         </div>
     );
