@@ -10,6 +10,11 @@ const getTeams = async () => {
       return resp.data.teams
     }
 
+const getAllEvents = async () => {
+        let resp = await axios.get(bigDataURL);
+        return resp.data.events
+      }
+
 const getAllFixtures = async () => {
         let resp = await axios.get(fixturesURL);
         return resp.data
@@ -21,4 +26,4 @@ const getFixtureByGameweek = async (gameweek) => {
       }
 
 
-module.exports = {getTeams , getAllFixtures , getFixtureByGameweek};
+module.exports = {getTeams , getAllFixtures , getFixtureByGameweek , getAllEvents};

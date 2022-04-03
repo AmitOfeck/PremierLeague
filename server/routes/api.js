@@ -24,6 +24,12 @@ router.route('/getFixtureByGameweek/:gameweek').get(async (req, resp) => {
     return resp.json(data);
 })
 
+//Get all events
+router.route('/getAllEvents').get(async (req, resp) => {
+    const data = await dataBL.getAllEvents();
+    return resp.json(data);
+})
+
 
 
 module.exports = router;

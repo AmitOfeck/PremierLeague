@@ -15,10 +15,16 @@ const getAllFixtures = async () => {
 }
 
 const getFixturesByGameweek = async (gameweek) => {
-    
+
     let resp = await axios.get(localUrl+"getFixtureByGameweek"+'/'+gameweek);
     return resp.data
 }
 
+const getAlEvents = async () => {
+    
+    let resp = await axios.get(localUrl+"getAllEvents");
+    return resp.data
+}
 
-export default {getTeams , getAllFixtures, getFixturesByGameweek}
+
+export default {getTeams , getAllFixtures, getFixturesByGameweek , getAlEvents}
