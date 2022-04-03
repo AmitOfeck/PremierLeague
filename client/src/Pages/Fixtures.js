@@ -4,9 +4,13 @@ import Utils from './Utils/Utils';
 
 function Fixtures(props) {
 
+    const [fixtures , setFixtures] = useState([])
+
+
     useEffect(async () => {
-        let answer = await Utils.getAllFixtures()
-        console.log(answer) 
+        let answer = await Utils.getFixturesByGameweek(1)
+        console.log(answer)
+        setFixtures(answer)
     },[])
 
 

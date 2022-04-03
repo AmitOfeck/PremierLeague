@@ -14,5 +14,11 @@ const getAllFixtures = async () => {
     return resp.data
 }
 
+const getFixturesByGameweek = async (gameweek) => {
+    
+    let resp = await axios.get(localUrl+"getFixtureByGameweek"+'/'+gameweek);
+    return resp.data
+}
 
-export default {getTeams , getAllFixtures}
+
+export default {getTeams , getAllFixtures, getFixturesByGameweek}
