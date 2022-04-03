@@ -4,28 +4,41 @@ import Utils from './Utils/Utils';
 
 function Fixtures(props) {
 
-    const [fixtures , setFixtures] = useState([])
-    const [gameweek , setGameweek] = useState(1)
+    let [fixtures , setFixtures] = useState([])
+    let [gameweek , setGameweek] = useState(1)
 
     useEffect(async () => {
+        console.log("first")
         let answer = await Utils.getAlEvents()
-        console.log(answer)
-        // let filter = answer.data.filter((fixture) => fixture.is_current === true)
-        // console.log(filter)
-        // setGameweek(answer)
+        let filter = answer.filter((fixture) => fixture.is_current === true)
+
+        console.log("gameweek: " + filter[0].id)
+
+        let fixturesByGameweek = await Utils.getFixturesByGameweek(filter[0].id)
+        console.log(fixturesByGameweek)
+        setFixtures(fixturesByGameweek)
+        setGameweek(filter[0])
+        console.log(gameweek.deadline_time)    
+
     },[])
 
+    function dateConvert(date){
+        let convert = new Date(date)
+        return convert.toLocaleDateString()
+    }
 
-    useEffect(async () => {
-        let answer = await Utils.getFixturesByGameweek(gameweek)
-        console.log(answer)
-        setFixtures(answer)
-    },[])
+    // useEffect(async () => {
+    //     console.log("second use effect")
+    //     let answer = await Utils.getFixturesByGameweek(gameweek.id)
+    //     console.log(answer)
+    //     setFixtures(answer)
+    // },[gameweek])
 
 
     return (
         <div>
-            fixtures
+            <h5>{gameweek.name} {dateConvert(gameweek.deadline_time)}</h5>
+
         </div>
     );
 }
