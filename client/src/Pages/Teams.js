@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import Utils from '../Utils/Utils';
+import Utils from './Utils/Utils';
 
 
 function Teams(props) {

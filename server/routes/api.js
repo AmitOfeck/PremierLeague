@@ -11,6 +11,12 @@ router.route('/Teams').get(async (req, resp) => {
     return resp.json(data);
 })
 
+//Get All Teams
+router.route('/GetAllFixtures').get(async (req, resp) => {
+    const data = await dataBL.getAllFixtures();
+    return resp.json(data);
+})
+
 
 
 module.exports = router;

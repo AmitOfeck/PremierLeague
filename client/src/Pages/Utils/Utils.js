@@ -8,5 +8,11 @@ const getTeams = async () => {
     return resp.data
 }
 
+const getAllFixtures = async () => {
+    let resp = await axios.get(localUrl+"GetAllFixtures");
+    console.log(resp)
+    return resp.data
+}
 
-export default {getTeams}
+
+export default {getTeams , getAllFixtures}
