@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import FixtureResult from './FixtureResult';
 import Utils from './Utils/Utils';
 
 
@@ -34,9 +35,14 @@ function Fixtures(props) {
     //     setFixtures(answer)
     // },[gameweek])
 
+    let fixturesDisplay =  fixtures.map((fixture, index) => {
+        return (<FixtureResult key={fixture.code} data={fixture} />)
+    })
+
     return (
         <div>
-            <h5>{gameweek.name}</h5>
+            <h5>{gameweek.name} {dateConvert(gameweek.deadline_time)}</h5>
+            {fixturesDisplay}
 
         </div>
     );
