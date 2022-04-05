@@ -2,17 +2,18 @@ import React from 'react';
 
 function FixtureResult(props) {
 
-    const homeTeam = props.data.team_h
-    const awayTeam = props.data.team_a
+    const homeTeam = getTeamNameById(props.data.team_h)
+    const awayTeam = getTeamNameById(props.data.team_a)
 
-    console.log(homeTeam)
-    console.log(awayTeam)
+    function getTeamNameById(id){
+        return props.teamsInfo[id-1].name
+    }
 
 
 
     return (
         <div>
-            
+            {homeTeam} : {awayTeam}
         </div>
     );
 }

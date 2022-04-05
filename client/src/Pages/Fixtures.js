@@ -36,7 +36,7 @@ function Fixtures(props) {
     // },[gameweek])
 
     let fixturesDisplay =  fixtures.map((fixture, index) => {
-        return (<FixtureResult key={fixture.code} data={fixture} />)
+        return (<FixtureResult key={fixture.code} data={fixture} teamsInfo={props.teamsInfo}/>)
     })
 
     return (
