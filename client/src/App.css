@@ -36,3 +36,21 @@
     transform: rotate(360deg);
   }
 }
+
+#gameResult{
+  background-color: rgb(206, 166, 206)
+}
+
+#teamName{
+  color: black;
+  font-weight: bold;
+  font-size:20px;
+}
+
+.gameStats{
+  background-color:rgba(151, 91, 151, 0.699)
+}
+
+#hiddenDiv{
+  visibility:hidden;
+}
