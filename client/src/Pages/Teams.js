@@ -4,15 +4,16 @@ import Utils from './Utils/Utils';
 
 function Teams(props) {
 
-    const [teams , setTeams] = useState([])
+    // const [teams , setTeams] = useState([])
 
-    useEffect(async () => {
-        let answer = await Utils.getTeams()
-        console.log(answer)
-        setTeams(answer)    
-    },[])
+    // useEffect(async () => {
+    //     console.log("in use effect")
+    //     // let answer = await Utils.getTeams()
+    //     // console.log(answer)
+    //     setTeams(props.teamsInfo)    
+    // },[])
 
-    let body = teams.map((team, index) => {
+    let body = props.teamsInfo.map((team, index) => {
         return (<tr key={team.id}>
         <th scope="row">{team.id}</th>
         <td>{team.name}</td>
