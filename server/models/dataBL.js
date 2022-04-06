@@ -25,5 +25,10 @@ const getFixtureByGameweek = async (gameweek) => {
         return resp.data
       }
 
+    const getAllPlayers = async () => {
+        let resp = await axios.get(bigDataURL);
+        return resp.data.elements
+      }
 
-module.exports = {getTeams , getAllFixtures , getFixtureByGameweek , getAllEvents};
+
+module.exports = {getTeams , getAllFixtures , getFixtureByGameweek , getAllEvents , getAllPlayers};

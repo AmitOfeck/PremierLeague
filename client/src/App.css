@@ -54,3 +54,8 @@
 #hiddenDiv{
   visibility:hidden;
 }
+
+#gameweekSelectionDiv{
+  display: flex;
+  justify-content: space-between;
+}

@@ -30,6 +30,11 @@ router.route('/getAllEvents').get(async (req, resp) => {
     return resp.json(data);
 })
 
+router.route('/getAllPlayers').get(async (req, resp) => {
+    const data = await dataBL.getAllPlayers();
+    return resp.json(data);
+})
+
 
 
 module.exports = router;

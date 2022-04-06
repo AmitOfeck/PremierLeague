@@ -18,7 +18,6 @@ function FixtureResult(props) {
 
     function timeConvert(date){
         let convert = new Date(date)
-        console.log(convert)
         return convert.toTimeString().slice(0,5)
     }
 
