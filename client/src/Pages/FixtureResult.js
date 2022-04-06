@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import '../App.css';
+import StatComp from './StatComp';
+
 
 function FixtureResult(props) {
 
@@ -12,9 +14,12 @@ function FixtureResult(props) {
     const team_a_score = props.data.started? props.data.team_a_score : "";
     const time = !props.data.started ? timeConvert(props.data.kickoff_time) : "";
 
+    // console.log(props.playersInfo)
+
     function getTeamNameById(id){
         return props.teamsInfo[id-1].name
     }
+
 
     function timeConvert(date){
         let convert = new Date(date)
@@ -22,6 +27,12 @@ function FixtureResult(props) {
     }
 
     let visibility = showStats ? "" : "hiddenDiv";
+
+    let statsDisplay =  props.data.stats.map((stat, index) => {
+        if((stat.a.length > 0 || stat.h.length) && stat.identifier !== "bonus"
+         && stat.identifier !== "penalties_saved" && stat.identifier !== "bps"  && stat.identifier !== "saves")
+        return (<StatComp  data={stat} playersInfo={props.playersInfo}/>)
+    })
     
 
 
@@ -33,7 +44,7 @@ function FixtureResult(props) {
             </div>
 
             <div class="gameStats" id={visibility}>
-            hi
+            {statsDisplay}
             </div>
 
             <br/><br/>

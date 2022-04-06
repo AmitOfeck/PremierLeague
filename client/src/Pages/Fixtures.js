@@ -8,10 +8,10 @@ function Fixtures(props) {
 
     let [fixtures , setFixtures] = useState([])
     let [gameweek , setGameweek] = useState({deadline_time : "" , id:-1})
+    let [allPlayers , setAllPlayers] = useState([])
 
     useEffect(async () => {
         console.log("first")
-        console.log(await Utils.getAllPlayers())
         let answer = await Utils.getAlEvents()
         let filter = answer.filter((fixture) => fixture.is_current === true)
 
@@ -19,6 +19,9 @@ function Fixtures(props) {
 
         let fixturesByGameweek = await Utils.getFixturesByGameweek(filter[0].id)
         console.log(fixturesByGameweek)
+
+        let playersList = await Utils.getAllPlayers()
+        setAllPlayers(playersList)
         setFixtures(fixturesByGameweek)
         setGameweek(filter[0])
 
@@ -40,7 +43,7 @@ function Fixtures(props) {
     // },[gameweek])
 
     let fixturesDisplay =  fixtures.map((fixture, index) => {
-        return (<FixtureResult key={fixture.code} data={fixture} teamsInfo={props.teamsInfo}/>)
+        return (<FixtureResult key={fixture.code} data={fixture} teamsInfo={props.teamsInfo} playersInfo={allPlayers}/>)
     })
 
     async function previosGameweek(currentGameweek){
