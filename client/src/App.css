@@ -59,3 +59,16 @@
   display: flex;
   justify-content: space-between;
 }
+
+#homeAway{
+  display: grid;
+  grid-template-columns: 50% 50%;
+  /* grid-template-rows: 80px 40px; */
+}
+
+#statTitle{
+  background-color:purple;
+  color:white;
+  font-weight:bold;
+  font-size:14px;
+}
