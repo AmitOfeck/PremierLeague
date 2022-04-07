@@ -49,8 +49,18 @@ function Fixtures(props) {
         let prevGameweek = events.filter((event) => event.id === previos)
         prevGameweek = prevGameweek[0]
         let answer = await Utils.getFixturesByGameweek(previos)
-        
+
         setGameweek(prevGameweek)
+        setFixtures(answer)
+    }
+
+    async function nextGameweek(currentGameweek){
+        let next = currentGameweek+1;
+        let nextGameweek = events.filter((event) => event.id === next)
+        nextGameweek = nextGameweek[0]
+        let answer = await Utils.getFixturesByGameweek(next)
+        
+        setGameweek(nextGameweek)
         setFixtures(answer)
     }
 
@@ -61,9 +71,9 @@ function Fixtures(props) {
             
             <div id="gameweekSelectionDiv">
             <div></div>
-            <button type="button" class="btn btn-outline-success" onClick={() => previosGameweek(gameweek.id) }>Previos</button>
+            <button type="button" class="btn btn-outline-success" onClick={() => previosGameweek(gameweek.id)}>Previos</button>
             <h5>{gameweek.name} &nbsp;&nbsp; - &nbsp;&nbsp; {dateConvert(gameweek.deadline_time)}</h5>
-            <button type="button" class="btn btn-outline-success">Next</button>
+            <button type="button" class="btn btn-outline-success" onClick={() => nextGameweek(gameweek.id)}>Next</button>
             <div></div>
             </div>
 
