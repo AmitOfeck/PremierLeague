@@ -17,13 +17,14 @@ function stats(props) {
 
     let homePlayers = props.data.h.length > 0 ?props.data.h.map((player, index) => {
         let name = getPlayersNameById(player.element)
-        return (<p key={index}>{name} ({player.value})</p>) 
+        return (
+        <p key={index}>{name} ({player.value})</p>) 
     }) : <div></div>
 
 
 
     return (
-        <div>
+        <div id="statDisplay">
             <div id="statTitle">{props.data.identifier}</div>
             <div id="homeAway">
             <div>{homePlayers}</div>

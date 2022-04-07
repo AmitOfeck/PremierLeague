@@ -41,7 +41,7 @@ function Fixtures(props) {
     // },[gameweek])
 
     let fixturesDisplay =  fixtures.map((fixture, index) => {
-        return (<FixtureResult key={fixture.code} data={fixture} teamsInfo={props.teamsInfo} playersInfo={allPlayers}/>)
+        return (<FixtureResult key={fixture.code} data={fixture} teamsInfo={props.teamsInfo} playersInfo={allPlayers} />)
     })
 
     async function previosGameweek(currentGameweek){
@@ -71,9 +71,9 @@ function Fixtures(props) {
             
             <div id="gameweekSelectionDiv">
             <div></div>
-            <button type="button" class="btn btn-outline-success" onClick={() => previosGameweek(gameweek.id)}>Previos</button>
+            <button type="button" className="btn btn-outline-success" onClick={() => previosGameweek(gameweek.id)}>Previos</button>
             <h5>{gameweek.name} &nbsp;&nbsp; - &nbsp;&nbsp; {dateConvert(gameweek.deadline_time)}</h5>
-            <button type="button" class="btn btn-outline-success" onClick={() => nextGameweek(gameweek.id)}>Next</button>
+            <button type="button" className="btn btn-outline-success" onClick={() => nextGameweek(gameweek.id)}>Next</button>
             <div></div>
             </div>
 

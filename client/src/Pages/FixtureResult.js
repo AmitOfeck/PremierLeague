@@ -31,23 +31,23 @@ function FixtureResult(props) {
     let statsDisplay =  props.data.stats.map((stat, index) => {
         if((stat.a.length > 0 || stat.h.length) && stat.identifier !== "bonus"
          && stat.identifier !== "penalties_saved" && stat.identifier !== "bps"  && stat.identifier !== "saves")
-        return (<StatComp  data={stat} playersInfo={props.playersInfo}/>)
+        return (<StatComp key={index} data={stat} playersInfo={props.playersInfo}/>)
     })
     
 
 
     return (
-        <div>
+        <div id="fixtureDisplay">
             <div id="gameResult" onClick={() => setShowStats(!showStats)}>
             <p id="teamName">{homeTeam} &nbsp; {team_h_score} - {team_a_score}  &nbsp; {awayTeam}</p>
             {time}
             </div>
 
-            <div class="gameStats" id={visibility}>
+            <div className="gameStats" id={visibility}>
             {statsDisplay}
             </div>
 
-            <br/><br/>
+            {/* <br/><br/> */}
         </div>
     );
 }
