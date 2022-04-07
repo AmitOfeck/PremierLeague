@@ -52,7 +52,7 @@
 }
 
 #hiddenDiv{
-  visibility:hidden;
+  display:none;
 }
 
 #gameweekSelectionDiv{

@@ -12,7 +12,7 @@ function Fixtures(props) {
     let [events , setEvents] = useState([])
 
     useEffect(async () => {
-        console.log("first")
+        
         let answer = await Utils.getAlEvents()
         let filter = answer.filter((fixture) => fixture.is_current === true)
 
