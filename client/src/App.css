@@ -85,3 +85,10 @@
   width: 80%;
   margin: auto;
 }
+
+#imagePlayersData{
+  width:30px;
+  height:30px;
+  mix-blend-mode: multiply;
+  background-image:none;
+}
