@@ -44,15 +44,18 @@ function Players(props) {
     },[])
 
     function returnTeamImageById(id){
-       let team = teams.filter((team) => team.id === id)
-       team = team[0]
-       const name = team.short_name;
-       switch(name) {
-        case "ARS":
-          return ARS
-        default:
-          // code block
-      }
+       let filter = teams.filter((team) => team.id === id)
+       let team = filter[0]
+       console.log(team)
+    //    let name = team.short_name;
+    //    console.log(name)
+    //    switch(name) {
+    //     case "ARS":
+    //       return ARS
+    //     default:
+    //       // code block
+    //   }
+    return AVL;
 
 
     }
@@ -74,9 +77,9 @@ function Players(props) {
         <div>
             players list
             <table class="table table-hover">
-            <thead>
+            <thead id="freeze">
                <tr>
-                  <th scope="col"></th>
+                  {/* <th scope="col"></th> */}
                   <th scope="col">Name</th>
                   <th scope="col"><img id="imagePlayersData" src={ball}/></th>
                   <th scope="col"><img id="imagePlayersData" src={shoe}/></th>
@@ -86,12 +89,6 @@ function Players(props) {
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                  <th scope="row">1</th>
-                  <td>Mark</td>
-                  <td>Otto</td>
-                 <td>@mdo</td>
-                </tr>
                 {display}
             </tbody>
            </table>

@@ -92,3 +92,10 @@
   mix-blend-mode: multiply;
   background-image:none;
 }
+
+#freeze{
+  /* position:fixed; */
+  background: white;
+  position: sticky;
+  top: 0;
+}
