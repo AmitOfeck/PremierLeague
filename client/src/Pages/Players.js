@@ -26,12 +26,15 @@ import TOT from '../images/Teams/TOT.jpeg';
 import WAT from '../images/Teams/WAT.jpeg';
 import WHU from '../images/Teams/WHU.jpeg';
 import WOL from '../images/Teams/WOL.jpeg';
+import playerDetails from './Popup';
+import Popup from './Popup';
 
 function Players(props) {
 
     const [allPlayers , setAllPlayers] = useState([])
     let [playersDisplay , setPlayersDisplay] = useState([])
     const [teams , setTeams] = useState([])
+    const [isOpen, setIsOpen] = useState(false);
 
     useEffect(async () => {   
 
@@ -42,6 +45,10 @@ function Players(props) {
         setTeams(teams)   
 
     },[])
+ 
+    const togglePopup = () => {
+      setIsOpen(!isOpen);
+    }
 
     function returnTeamImageById(id){
        let filter = teams.filter((team) => team.id === id)
@@ -75,6 +82,19 @@ function Players(props) {
 
     return (
         <div>
+             <input type="button" value="Click to Open Popup" onClick={togglePopup}/>
+
+
+             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+             {isOpen && <Popup
+              content={<>
+              <b>Design your Popup</b>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+              <button>Test button</button>
+              </>}
+              handleClose={togglePopup}
+              />}
+
             players list
             <table class="table table-hover">
             <thead id="freeze">
