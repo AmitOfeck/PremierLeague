@@ -30,5 +30,17 @@ const getAllPlayers= async () => {
     return resp.data
 }
 
+const getPlayerNextFixtures= async (playerId) => {
+    console.log("guy")
+    console.log(playerId);
+    let resp = await axios.get(localUrl+"getPlayerNextFixtures/"+playerId);
+    return resp.data
+}
 
-export default {getTeams , getAllFixtures, getFixturesByGameweek , getAlEvents , getAllPlayers}
+const getPlayerHistory= async (playerId) => {
+    let resp = await axios.get(localUrl+"getPlayerHistory/"+playerId);
+    return resp.data
+}
+
+
+export default {getTeams , getAllFixtures, getFixturesByGameweek , getAlEvents , getAllPlayers , getPlayerNextFixtures , getPlayerHistory}

@@ -35,6 +35,21 @@ router.route('/getAllPlayers').get(async (req, resp) => {
     return resp.json(data);
 })
 
+router.route('/getPlayerNextFixtures/:playerId').get(async (req, resp) => {
+    const playerId = req.params.playerId;
+    console.log("in api")
+    console.log(playerId);
+    const data = await dataBL.playerNextFixtures(playerId);
+    // console.log(data);
+    return resp.json(data);
+})
+
+router.route('/getPlayerHistory/:playerId').get(async (req, resp) => {
+    const playerId = req.params.playerId;
+    const data = await dataBL.playerHisory(playerId);
+    // console.log(data);
+    return resp.json(data);
+})
 
 
 module.exports = router;

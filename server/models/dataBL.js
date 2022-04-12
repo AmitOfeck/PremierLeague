@@ -4,6 +4,7 @@ const axios = require('axios')
 
 const bigDataURL = 'https://fantasy.premierleague.com/api/bootstrap-static/'
 const fixturesURL = 'https://fantasy.premierleague.com/api/fixtures'
+const elementSummaryURL = 'https://fantasy.premierleague.com/api/element-summary/'
 
 const getTeams = async () => {
       let resp = await axios.get(bigDataURL);
@@ -25,10 +26,22 @@ const getFixtureByGameweek = async (gameweek) => {
         return resp.data
       }
 
-    const getAllPlayers = async () => {
+const getAllPlayers = async () => {
         let resp = await axios.get(bigDataURL);
         return resp.data.elements
       }
 
+const playerNextFixtures = async (playerId) => {
+  console.log("in BL")
+  let resp = await axios.get(elementSummaryURL+playerId+'/')
+  // console.log(resp)
+  return resp.data.fixtures
+}
 
-module.exports = {getTeams , getAllFixtures , getFixtureByGameweek , getAllEvents , getAllPlayers};
+const playerHisory = async (playerId) => {
+  let resp = await axios.get(elementSummaryURL+playerId+'/')
+  return resp.data.history
+}
+
+
+module.exports = {getTeams , getAllFixtures , getFixtureByGameweek , getAllEvents , getAllPlayers , playerNextFixtures , playerHisory};
