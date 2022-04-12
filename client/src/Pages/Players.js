@@ -35,6 +35,7 @@ function Players(props) {
     let [playersDisplay , setPlayersDisplay] = useState([])
     const [teams , setTeams] = useState([])
     const [isOpen, setIsOpen] = useState(false);
+    const [popupPlayer, setPopupPlayer] = useState(0);
 
     useEffect(async () => {   
 
@@ -46,7 +47,8 @@ function Players(props) {
 
     },[])
  
-    const togglePopup = () => {
+    const togglePopup = (playerId) => {
+      setPopupPlayer(playerId)
       setIsOpen(!isOpen);
     }
 
@@ -68,7 +70,7 @@ function Players(props) {
     }
 
     let display = playersDisplay.map((player , index) => {
-        return (<tr key={index}>
+        return (<tr key={index} onClick={() => togglePopup(player.id)}>
             {/* <td><img id="imagePlayersData" src={returnTeamImageById(player.team)}></img></td> */}
             <td>{player.web_name}</td>
             <td>{player.goals_scored}</td>
@@ -82,14 +84,16 @@ function Players(props) {
 
     return (
         <div>
-             <input type="button" value="Click to Open Popup" onClick={togglePopup}/>
+             {/* <input type="button" value="Click to Open Popup" onClick={togglePopup}/> */}
 
 
-             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+             {/* <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p> */}
              {isOpen && <Popup
               content={<>
-              <b>Design your Popup</b>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+              <p>{popupPlayer}</p>
+              {/* <b>Design your Popup</b>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p> */}
+
               <button>Test button</button>
               </>}
               handleClose={togglePopup}
