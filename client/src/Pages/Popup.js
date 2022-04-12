@@ -8,7 +8,9 @@ function Popup(props) {
   let [playerNextFixtures , setNextFixtures] = useState([])
   let [playerHistory , setPlayersDisplay] = useState([])
 
-    useEffect(async () => {   
+    useEffect(async () => {  
+      
+      console.log(props.playerData)
 
        let next = await Utils.getPlayerNextFixtures(props.playerId)
        console.log(next)

@@ -36,6 +36,7 @@ function Players(props) {
     const [teams , setTeams] = useState([])
     const [isOpen, setIsOpen] = useState(false);
     const [popupPlayer, setPopupPlayer] = useState(0);
+    const [popupData , setPopupData] = useState({});
 
     useEffect(async () => {   
 
@@ -47,8 +48,9 @@ function Players(props) {
 
     },[])
  
-    const togglePopup = (playerId) => {
+    const togglePopup = (playerId , data) => {
       setPopupPlayer(playerId)
+      setPopupData(data)
       setIsOpen(!isOpen);
     }
 
@@ -70,7 +72,7 @@ function Players(props) {
     }
 
     let display = playersDisplay.map((player , index) => {
-        return (<tr key={index} onClick={() => togglePopup(player.id)}>
+        return (<tr key={index} onClick={() => togglePopup(player.id , player)}>
             {/* <td><img id="imagePlayersData" src={returnTeamImageById(player.team)}></img></td> */}
             <td>{player.web_name}</td>
             <td>{player.goals_scored}</td>
@@ -90,6 +92,7 @@ function Players(props) {
              {/* <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p> */}
              {isOpen && <Popup
               playerId={popupPlayer}
+              playerData = {popupData}
               handleClose={togglePopup}
               />}
 
