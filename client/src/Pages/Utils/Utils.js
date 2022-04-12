@@ -31,13 +31,13 @@ const getAllPlayers= async () => {
 }
 
 const getPlayerNextFixtures= async (playerId) => {
-    console.log("guy")
-    console.log(playerId);
+
     let resp = await axios.get(localUrl+"getPlayerNextFixtures/"+playerId);
     return resp.data
 }
 
 const getPlayerHistory= async (playerId) => {
+    
     let resp = await axios.get(localUrl+"getPlayerHistory/"+playerId);
     return resp.data
 }

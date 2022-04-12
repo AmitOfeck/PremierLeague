@@ -32,9 +32,7 @@ const getAllPlayers = async () => {
       }
 
 const playerNextFixtures = async (playerId) => {
-  console.log("in BL")
   let resp = await axios.get(elementSummaryURL+playerId+'/')
-  // console.log(resp)
   return resp.data.fixtures
 }
 
