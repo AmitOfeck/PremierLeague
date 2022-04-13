@@ -48,10 +48,14 @@ function Players(props) {
 
     },[])
  
-    const togglePopup = (playerId , data) => {
-      setPopupPlayer(playerId)
-      setPopupData(data)
-      setIsOpen(!isOpen);
+    let togglePopup = (playerId , data) => {
+        console.log(playerId)
+        console.log(data)
+        console.log(isOpen)
+        setIsOpen(!isOpen);
+        setPopupPlayer(playerId);
+        setPopupData(data);
+
     }
 
     function returnTeamImageById(id){

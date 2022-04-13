@@ -7,9 +7,12 @@ function Popup(props) {
 
   let [playerNextFixtures , setNextFixtures] = useState([])
   let [playerHistory , setPlayersDisplay] = useState([])
+  const [isOpen, setIsOpen] = useState(true);
+
 
     useEffect(async () => {  
       
+      console.log(props.playerId)
       console.log(props.playerData)
 
        let next = await Utils.getPlayerNextFixtures(props.playerId)
@@ -21,15 +24,17 @@ function Popup(props) {
        setPlayersDisplay(history)
    },[])
 
-
-    return (
-      <div className="popup-box">
-        <div className="box">
-          <span className="close-icon" onClick={props.handleClose}>x</span>
-          <p>{props.playerId}</p>
+    if(isOpen){
+      return (
+        <div className="popup-box">
+          <div className="box">
+            <span className="close-icon" onClick={() => setIsOpen(!isOpen)}>x</span>
+            <p>{props.playerId}</p>
+          </div>
         </div>
-      </div>
-    );
+      );
+    }
+   
   };
 
   export default Popup;
