@@ -7,6 +7,7 @@ import yellow from '../images/yellow.jpeg';
 import red from '../images/red.jpeg';
 import clock from '../images/clock.jpeg';
 import HistoryPlayer from './HistoryPlayer';
+import PlayerNextFixtures from './PlayerNextFixtures';
 
 
 function Popup(props) {
@@ -67,7 +68,9 @@ function Popup(props) {
               </li>
             </ul>
 
+            <PlayerNextFixtures next={playerNextFixtures} teamsInfo={props.teamsInfo} data={props.playerData}/>
             <HistoryPlayer history={playerHistory} teamsInfo={props.teamsInfo} data={props.playerData}/>
+            
 
           </div>
         </div>
