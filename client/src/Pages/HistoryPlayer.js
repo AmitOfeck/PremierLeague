@@ -31,7 +31,7 @@ function HistoryPlayer(props) {
         <div>
             This season
             <table class="table table-hover">
-                <thead>
+                <thead id="topRow">
                    <tr>
                       <th scope="col">GW</th>
                       <th scope="col">OPP</th>
