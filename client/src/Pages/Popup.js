@@ -15,6 +15,7 @@ function Popup(props) {
   let [playerNextFixtures , setNextFixtures] = useState([])
   let [playerHistory , setPlayersDisplay] = useState([])
   const [isOpen, setIsOpen] = useState(true);
+  let [pageDisplay, setPageDisplay] = useState("history");
 
 
     useEffect(async () => {  
@@ -31,6 +32,12 @@ function Popup(props) {
        setPlayersDisplay(history)
    },[])
 
+   let page = pageDisplay === "history" ? <HistoryPlayer history={playerHistory}
+    teamsInfo={props.teamsInfo} data={props.playerData}/> : 
+    <PlayerNextFixtures next={playerNextFixtures} 
+    teamsInfo={props.teamsInfo} data={props.playerData}/>
+
+ 
     if(isOpen){
       return (
         <div className="popup-box">
@@ -60,16 +67,16 @@ function Popup(props) {
             </div>
 
             <ul class="nav nav-tabs">
-               <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" >History</a>
+               <li class="nav-item" onClick={() =>setPageDisplay("history")}>
+                  <a class={pageDisplay === "history" ? "nav-link active" : "nav-link disabled"} aria-current="page">History</a>
                </li>
-               <li class="nav-item">
-                  <a class="nav-link disabled">Disabled</a>
+               <li class="nav-item" onClick={() =>setPageDisplay("next")}>
+                  <a class={pageDisplay === "next" ? "nav-link active" : "nav-link disabled"}>Fixtures</a>
               </li>
             </ul>
 
-            <PlayerNextFixtures next={playerNextFixtures} teamsInfo={props.teamsInfo} data={props.playerData}/>
-            <HistoryPlayer history={playerHistory} teamsInfo={props.teamsInfo} data={props.playerData}/>
+            {page}
+
             
 
           </div>
