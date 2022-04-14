@@ -36,10 +36,10 @@ function Popup(props) {
           <div className="box">
             <span className="close-icon" onClick={() => setIsOpen(!isOpen)}>x</span>
 
-            <div>
+            <div id="headerPlayer">
                 <p>{props.playerData.first_name}{" "}{props.playerData.second_name}</p>
                 <table class="table table-hover">
-                <thead id="freeze">
+                <thead>
                    <tr>
                       <th scope="col"><img id="imagePlayersData" src={ball}/></th>
                       <th scope="col"><img id="imagePlayersData" src={shoe}/></th>

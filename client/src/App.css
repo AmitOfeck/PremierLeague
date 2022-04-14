@@ -139,3 +139,8 @@
   border: 1px solid #999;
   font-size: 20px;
 }
+
+#headerPlayer{
+  background-color:rgb(218, 207, 218);
+  font-weight: bold;
+}
