@@ -6,6 +6,7 @@ import shoe from '../images/show.jpeg';
 import yellow from '../images/yellow.jpeg';
 import red from '../images/red.jpeg';
 import clock from '../images/clock.jpeg';
+import HistoryPlayer from './HistoryPlayer';
 
 
 function Popup(props) {
@@ -59,14 +60,15 @@ function Popup(props) {
 
             <ul class="nav nav-tabs">
                <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" >Active</a>
+                  <a class="nav-link active" aria-current="page" >History</a>
                </li>
                <li class="nav-item">
                   <a class="nav-link disabled">Disabled</a>
               </li>
             </ul>
 
-            <p>{props.playerId}</p>
+            <HistoryPlayer history={playerHistory} teamsInfo={props.teamsInfo}/>
+
           </div>
         </div>
       );

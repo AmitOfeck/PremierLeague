@@ -98,6 +98,7 @@ function Players(props) {
               playerId={popupPlayer}
               playerData = {popupData}
               handleClose={togglePopup}
+              teamsInfo={teams}
               />}
 
             players list
