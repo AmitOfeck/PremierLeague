@@ -18,9 +18,9 @@ function Router() {
     return (
         <div>
              <Routes>
-                {/* <Route path="/" exact element={<Teams teamsInfo={teams}/>}/> */}
-                {/* <Route path="/" exact element={<Fixtures teamsInfo={teams}/>}/> */}
-                <Route path="/" exact element={<Players />}/>
+                <Route path="/" exact element={<Fixtures teamsInfo={teams}/>}/>
+                <Route path="/Table" exact element={<Teams teamsInfo={teams}/>}/>
+                <Route path="/Players" exact element={<Players />}/>
              </Routes>
         </div>
     );

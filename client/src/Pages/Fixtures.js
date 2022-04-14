@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import FixtureResult from './FixtureResult';
 import Utils from './Utils/Utils';
 import '../App.css';
+import Nav from './Nav';
 
 
 function Fixtures(props) {
@@ -66,9 +67,8 @@ function Fixtures(props) {
 
     return (
         <div>
-
-            <br/>
-            
+           <Nav/>
+    
             <div id="gameweekSelectionDiv">
             <div></div>
             <button type="button" className="btn btn-outline-success" onClick={() => previosGameweek(gameweek.id)}>Previos</button>

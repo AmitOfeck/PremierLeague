@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Nav from './Nav';
 import Utils from './Utils/Utils';
 
 
@@ -27,8 +28,7 @@ function Teams(props) {
 
     return (
         <div>
-            teams
-
+            <Nav/>
             <table class="table">
               <thead>
                  <tr>
