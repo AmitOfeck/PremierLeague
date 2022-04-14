@@ -67,7 +67,7 @@ function Popup(props) {
               </li>
             </ul>
 
-            <HistoryPlayer history={playerHistory} teamsInfo={props.teamsInfo}/>
+            <HistoryPlayer history={playerHistory} teamsInfo={props.teamsInfo} data={props.playerData}/>
 
           </div>
         </div>

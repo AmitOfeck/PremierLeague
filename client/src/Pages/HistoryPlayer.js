@@ -50,6 +50,21 @@ function HistoryPlayer(props) {
                 </thead>
                 <tbody>
                  {rows}
+                 <tr>
+                      <th scope="col">Totals</th>
+                      <th scope="col"></th>
+                      <th scope="col">{props.data.minutes}</th>
+                      <th scope="col">{props.data.goals_scored}</th>
+                      <th scope="col">{props.data.assists}</th>
+                      <th scope="col">{props.data.clean_sheets}</th>
+                      <th scope="col">{props.data.goals_conceded}</th>
+                      <th scope="col">{props.data.own_goals}</th>
+                      <th scope="col">{props.data.penalties_saved}</th>
+                      <th scope="col">{props.data.penalties_missed}</th>
+                      <th scope="col">{props.data.yellow_cards}</th>
+                      <th scope="col">{props.data.red_cards}</th>
+                      <th scope="col">{props.data.saves}</th>
+                   </tr>
                 </tbody>
                 </table>
         </div>
