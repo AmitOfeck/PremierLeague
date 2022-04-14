@@ -17,7 +17,7 @@ function PlayerNextFixtures(props) {
         return (<tr key={index}>
             <td>{dateConvert(game.kickoff_time)}</td>
             <td>{game.event}</td>
-            <td>{game.is_home ? returnTeaById(game.team_h) : returnTeaById(game.team_a)}</td>
+            <td>{props.data.team !== game.team_h ? returnTeaById(game.team_h) : returnTeaById(game.team_a)}</td>
             <td id={`difficulty${game.difficulty}`} >{game.difficulty}</td>
         </tr>)
     })
